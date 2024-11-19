@@ -29,8 +29,8 @@ public class ResponseData<T> implements Serializable {
         return restResult(data, HttpStatus.OK.value(), null, "success");
     }
 
-    public ResponseData<T> failed(T data, String message){
-
+    public static <T> ResponseData<T> failed(HttpStatus httpStatus, String errorCode, String message){
+        return restResult(null, httpStatus.value(), errorCode, message);
     }
 
     public static <T> ResponseData<T> restResult(T data, int status, String errorCode, String message){
