@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -56,10 +57,12 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public void updateProduct(ProductRequest request) {
 
-        Product product = productRepository.findOneById(request.getId());
-        if(Objects.isNull(product)){
+        Optional<Product> products = productRepository.findOneById(request.getId());
+        if(Objects.isNull(products)){
             return;
         }
+
+        Product product = products.get();
 
         product = Product.builder()
                 .id(request.getId())

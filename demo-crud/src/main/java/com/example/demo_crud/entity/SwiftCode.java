@@ -11,19 +11,34 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "swift_code")
+@Table(name = "DM_SWIFT_CODE")
 public class SwiftCode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "SWIFT_CODE")
     private String swiftCode;
 
-    private String nameBank;
+    @Column(name = "BANK_NAME")
+    private String bankName;
 
+    @Column(name = "NOTE")
     private String note;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(name = "STATUS")
+    private String status;
+
+    @Column(name = "CREATE_DATE")
+    private LocalDateTime createDate;
+
+    @Column(name = "CREATE_BY")
+    private String createBy;
+
+    @Column(name = "UPDATE_BY")
+    private String updateBy;
+
+    @Column(name = "UPDATE_DATE")
+    private LocalDateTime updateDate;
 }
