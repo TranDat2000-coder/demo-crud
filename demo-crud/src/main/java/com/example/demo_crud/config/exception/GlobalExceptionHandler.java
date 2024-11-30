@@ -1,6 +1,7 @@
 package com.example.demo_crud.config.exception;
 
 import com.example.demo_crud.common.ErrorCode;
+import com.example.demo_crud.response.common.BusinessException;
 import com.example.demo_crud.response.common.ResponseData;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,11 @@ import java.util.List;
 @ResponseBody
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(value = BusinessException.class)
+    public ResponseEntity<?> businessExceptionHandler(BusinessException e) {
+        return defhandler(HttpStatus.NOT_ACCEPTABLE, e.getErrorCode(), e.getMessage());
+    }
 
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleRequestException(MethodArgumentNotValidException ex) {

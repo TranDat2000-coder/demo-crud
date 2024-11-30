@@ -20,7 +20,7 @@ public class ProductController {
     private IProductService productService;
 
     @GetMapping("/get-product-list")
-    public ResponseEntity<List<ProductResponse>> getProductList() {
+    public ResponseEntity<List<?>> getProductList() {
         return ResponseEntity.ok(productService.getProductList());
     }
 

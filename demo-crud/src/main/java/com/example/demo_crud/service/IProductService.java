@@ -1,5 +1,6 @@
 package com.example.demo_crud.service;
 
+import com.example.demo_crud.entity.Product;
 import com.example.demo_crud.request.ProductRequest;
 import com.example.demo_crud.response.ProductResponse;
 
@@ -9,7 +10,7 @@ public interface IProductService {
 
     List<ProductResponse> getProductList();
 
-    void insertProduct(ProductRequest request);
+    Product insertProduct(ProductRequest request);
 
     void updateProduct(ProductRequest request);
 

@@ -5,7 +5,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum ErrorCode {
 
-    INPUT_INVALID("203", "Input invalid");
+    INPUT_INVALID("203", "Input invalid"),
+    DATA_EMPTY("204", "Data is empty");
 
     private String errorCode;
 
